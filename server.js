@@ -1,6 +1,6 @@
-var http = require('http');
-var fs = require('fs');
-var spawn = require('child_process').spawn;
+const http = require('http');
+const fs = require('fs');
+const spawn = require('child_process').spawn;
 
 
 http.createServer(function(request, response){
@@ -8,8 +8,7 @@ http.createServer(function(request, response){
    request.pipe(response);
 }).listen(8080);
 
-
-var child = spawn('curl',['-d', 'Hello World!', 'http://localhost:8080']);
+const child = spawn('curl',['-d', 'Hello World!', 'http://localhost:8080']);
 
 child.stdout.on('data', function(data){
     console.log(data.toString());
